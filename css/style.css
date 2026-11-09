@@ -1,0 +1,14 @@
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#theme-toggle svg[hidden] {
+    display: none;
+}
