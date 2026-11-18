@@ -5,8 +5,8 @@ const sunIcon = document.getElementById("sun-icon");
 themeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark-theme");
 
-    moonIcon.hidden = isDark;
-    sunIcon.hidden = !isDark;
+    moonIcon.style.display = isDark ? "none" : "block";
+    sunIcon.style.display = isDark ? "block" : "none";
 
     themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
 });
