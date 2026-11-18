@@ -13,7 +13,7 @@
     --button-bg: #dac8b9;
 }
 
-body.dark-theme {
+:root.dark-theme {
     --bg-color: #292524;
     --section-bg: #38312e;
     --header-bg: #443a35;
@@ -538,7 +538,8 @@ html {
     color: var(--bg-color);
 }
 
-.filter-btn:hover:not(.active) {
+.filter-btn:hover:not(.active),
+.cancel-button:hover {
     background-color: var(--header-bg);
 }
 

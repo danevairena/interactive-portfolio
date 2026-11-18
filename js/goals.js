@@ -26,8 +26,19 @@ const initialGoals = [
     }
 ];
 
-let goals = initialGoals.map(goal => ({ ...goal }));
+const STORAGE_KEY = "learningGoals";
+
+const savedGoals = localStorage.getItem(STORAGE_KEY);
+
+let goals = savedGoals !== null
+    ? JSON.parse(savedGoals)
+    : initialGoals.map(goal => ({ ...goal }));
+
 let currentFilter = "all";
+
+function saveGoals() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
+}
 
 function toggleGoal(id) {
     const goal = goals.find(goal => goal.id === id);
@@ -35,6 +46,7 @@ function toggleGoal(id) {
     if (!goal) return;
 
     goal.completed = !goal.completed;
+    saveGoals();
     updateUI();
 }
 
@@ -46,6 +58,7 @@ function deleteGoal(id) {
     if (!confirmed) return;
 
     goals = goals.filter(goal => goal.id !== id);
+    saveGoals();
     updateUI();
 }
 
@@ -87,6 +100,7 @@ function addGoal(title, firstStep) {
     };
 
     goals.push(newGoal);
+    saveGoals();
     updateUI();
 
     return null;

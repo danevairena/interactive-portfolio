@@ -2,9 +2,21 @@
 const themeToggle = document.getElementById("theme-toggle");
 const moonIcon = document.getElementById("moon-icon");
 const sunIcon = document.getElementById("sun-icon");
+const THEME_STORAGE_KEY = "theme";
+
+if (document.documentElement.classList.contains("dark-theme")) {
+    moonIcon.style.display = "none";
+    sunIcon.style.display = "block";
+    themeToggle.setAttribute("aria-label", "Switch to light mode");
+}
 
 themeToggle.addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark-theme");
+    const isDark = document.documentElement.classList.toggle("dark-theme");
+
+    localStorage.setItem(
+        THEME_STORAGE_KEY,
+        isDark ? "dark" : "light"
+    );
 
     moonIcon.style.display = isDark ? "none" : "block";
     sunIcon.style.display = isDark ? "block" : "none";
