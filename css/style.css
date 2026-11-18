@@ -697,6 +697,26 @@ html {
     }
 }
 
+/* Footer */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 8px 8%;
+    background-color: var(--section-bg);
+}
+
+.footer p {
+    margin: 0;
+    color: var(--text-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
 /* Screens up to 768px */
 @media (max-width: 768px) {
 
