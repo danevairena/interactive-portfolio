@@ -1,6 +1,7 @@
 /* LEARNING GOALS DATA */
 
 import { renderGoals } from "./goals-ui.js";
+import { renderStats } from "./goals-stats.js";
 
 const initialGoals = [
     {
@@ -31,7 +32,7 @@ function toggleGoal(id) {
     if (!goal) return;
 
     goal.completed = !goal.completed;
-    renderGoals(goals, toggleGoal, deleteGoal);
+    updateUI();
 }
 
 function deleteGoal(id) {
@@ -42,7 +43,12 @@ function deleteGoal(id) {
     if (!confirmed) return;
 
     goals = goals.filter(goal => goal.id !== id);
-    renderGoals(goals, toggleGoal, deleteGoal);
+    updateUI();
 }
 
-renderGoals(goals, toggleGoal, deleteGoal);
+function updateUI() {
+    renderGoals(goals, toggleGoal, deleteGoal);
+    renderStats(goals);
+}
+
+updateUI();
