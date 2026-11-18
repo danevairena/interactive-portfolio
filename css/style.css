@@ -445,7 +445,15 @@ html {
 
 /* Add Goal Form */
 
+#show-goal-form {
+    margin-bottom: 24px;
+}
+
 .goal-form {
+    margin-bottom: 24px;
+}
+
+.goal-form-field {
     margin-bottom: 20px;
 }
 
@@ -456,14 +464,11 @@ html {
     margin-bottom: 12px;
 }
 
-.goal-input-group {
-    display: flex;
-    gap: 10px;
-}
-
-#goal-input {
-    flex: 1;
-    min-width: 0;
+#goal-input,
+#goal-step-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     padding: 16px;
 
     border: 1px solid var(--header-bg);
@@ -476,13 +481,22 @@ html {
     font-size: 1.5rem;
 }
 
-#goal-input::placeholder {
+#goal-input::placeholder,
+#goal-step-input::placeholder {
     color: var(--muted-color);
 }
 
-#goal-input:focus {
+#goal-input:focus,
+#goal-step-input:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
+}
+
+.goal-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
 }
 
 .goal-error {
@@ -503,7 +517,8 @@ html {
     margin-bottom: 28px;
 }
 
-.filter-btn {
+.filter-btn,
+.cancel-button {
     border: none;
     border-radius: 50px;
     padding: 12px 24px;
@@ -657,13 +672,12 @@ html {
         font-size: 0.8rem;
     }
 
-    .goal-input-group {
-        flex-direction: column;
+    .goal-form-actions {
+        flex-wrap: wrap;
     }
 
-    .goal-input-group .primary-button {
-        width: 100%;
-        box-sizing: border-box;
+    .goal-form-actions button {
+        flex: 1;
     }
 
     .filter-btn {

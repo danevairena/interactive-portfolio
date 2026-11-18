@@ -3,6 +3,7 @@
 import { renderGoals } from "./goals-ui.js";
 import { renderStats } from "./goals-stats.js";
 import { initFilters } from "./goals-filters.js";
+import { initGoalForm } from "./goals-form.js";
 
 const initialGoals = [
     {
@@ -61,6 +62,36 @@ function getFilteredGoals() {
     }
 }
 
+function addGoal(title, firstStep) {
+    if (!title) {
+        return "Please enter a learning goal.";
+    }
+
+    if (!firstStep) {
+        return "Please enter the first step.";
+    }
+
+    const isDuplicate = goals.some(goal =>
+        goal.title.trim().toLowerCase() === title.toLowerCase()
+    );
+
+    if (isDuplicate) {
+        return "This learning goal already exists.";
+    }
+
+    const newGoal = {
+        id: crypto.randomUUID(),
+        title,
+        firstStep,
+        completed: false
+    };
+
+    goals.push(newGoal);
+    updateUI();
+
+    return null;
+}
+
 function updateUI() {
     const filteredGoals = getFilteredGoals();
 
@@ -72,5 +103,7 @@ initFilters(filter => {
     currentFilter = filter;
     updateUI();
 });
+
+initGoalForm(addGoal);
 
 updateUI();

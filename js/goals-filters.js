@@ -1,4 +1,4 @@
-const filterButtons = document.querySelectorAll(".filter-btn");
+const filterButtons = document.querySelectorAll(".goal-filters .filter-btn");
 
 export function initFilters(onFilterChange) {
     filterButtons.forEach(button => {

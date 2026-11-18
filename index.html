@@ -251,10 +251,19 @@
                 <p id="goals-empty" class="goals-empty" hidden></p>
 
                 <!-- Add New Goal -->
-                <form id="goal-form" class="goal-form">
-                    <label for="goal-input">Add a new learning goal</label>
+                <button
+                    type="button"
+                    id="show-goal-form"
+                    class="primary-button"
+                    aria-expanded="false"
+                    aria-controls="goal-form"
+                >
+                    + Add Goal
+                </button>
 
-                    <div class="goal-input-group">
+                <form id="goal-form" class="goal-form" hidden>
+                    <div class="goal-form-field">
+                        <label for="goal-input">Learning Goal</label>
                         <input
                             type="text"
                             id="goal-input"
@@ -262,14 +271,34 @@
                             maxlength="150"
                             autocomplete="off"
                         >
+                    </div>
+
+                    <div class="goal-form-field">
+                        <label for="goal-step-input">First Step</label>
+                        <input
+                            type="text"
+                            id="goal-step-input"
+                            placeholder="What's the first step you'll take?"
+                            maxlength="250"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <p id="goal-error" class="goal-error" role="alert" hidden></p>
+
+                    <div class="goal-form-actions">
+                        <button
+                            type="button"
+                            id="cancel-goal"
+                            class="cancel-button"
+                        >
+                            Cancel
+                        </button>
 
                         <button type="submit" class="primary-button">
                             Add Goal
                         </button>
                     </div>
-
-                    <p id="goal-error" class="goal-error"
-                    role="alert" hidden></p>
                 </form>
             </div>
         </section>
@@ -278,7 +307,7 @@
     <footer>
 
     </footer>
-    
+
     <script src="js/app.js"></script>
     <script type="module" src="js/goals.js"></script>
 </body>
