@@ -1,9 +1,24 @@
 /* LEARNING GOALS UI */
 
 const goalsList = document.getElementById("goals-list");
+const goalsEmpty = document.getElementById("goals-empty");
 
-export function renderGoals(goals, onToggle, onDelete) {
+export function renderGoals(goals, onToggle, onDelete, currentFilter) {
     goalsList.replaceChildren();
+
+    if (goals.length === 0) {
+        const messages = {
+            all: "No learning goals yet. Add your first goal!",
+            active: "No active goals. Great progress!",
+            completed: "No completed goals yet. Keep going!"
+        };
+
+        goalsEmpty.textContent = messages[currentFilter];
+        goalsEmpty.hidden = false;
+        return;
+    }
+
+    goalsEmpty.hidden = true;
 
     goals.forEach(goal => {
         const listItem = document.createElement("li");

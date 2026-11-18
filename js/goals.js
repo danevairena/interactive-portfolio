@@ -64,7 +64,7 @@ function getFilteredGoals() {
 function updateUI() {
     const filteredGoals = getFilteredGoals();
 
-    renderGoals(filteredGoals, toggleGoal, deleteGoal);
+    renderGoals(filteredGoals, toggleGoal, deleteGoal, currentFilter);
     renderStats(goals);
 }
 
