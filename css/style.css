@@ -307,7 +307,7 @@ html {
 /* Skills Section */
 
 .skills {
-    padding: 90px 8%;
+    padding: 150px 8%;
 }
 
 .skills-heading {
@@ -382,6 +382,303 @@ html {
 
     .skill-card {
         padding: 24px;
+    }
+}
+
+
+/* Learning Goals Section */
+
+.learning {
+    background-color: var(--bg-color);
+    padding: 90px 8%;
+}
+
+.learning-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Section Heading */
+
+.learning-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.learning-heading h2 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    margin: 16px 0 8px;
+}
+
+.learning-heading p {
+    font-size: 1.3rem;
+    color: var(--muted-color);
+    margin: 0;
+}
+
+/* Statistics */
+
+.goals-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    background-color: var(--section-bg);
+    border-radius: 16px;
+    padding: 24px 12px;
+    text-align: center;
+}
+
+.stat-card span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+    margin: 6px 0 0;
+}
+
+/* Add Goal Form */
+
+.goal-form {
+    margin-bottom: 20px;
+}
+
+.goal-form label {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.goal-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+#goal-input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+
+    border: 1px solid var(--header-bg);
+    border-radius: 12px;
+
+    background-color: var(--card-bg);
+    color: var(--text-color);
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+}
+
+#goal-input::placeholder {
+    color: var(--muted-color);
+}
+
+#goal-input:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.goal-error {
+    color: #b45353;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.goal-error[hidden] {
+    display: none;
+}
+
+/* Goal Filters */
+
+.goal-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+
+    background-color: var(--section-bg);
+    color: var(--text-color);
+
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.filter-btn.active {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.filter-btn:hover:not(.active) {
+    background-color: var(--header-bg);
+}
+
+/* Goals List */
+
+.goals-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 22px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+}
+
+/* Completion Button */
+
+.goal-status {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+
+    cursor: pointer;
+}
+
+.goal-item.completed .goal-status {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.goal-status svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Goal Content */
+
+.goal-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.goal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    overflow-wrap: anywhere;
+}
+
+.goal-item.completed .goal-title {
+    text-decoration: line-through;
+}
+
+.goal-description {
+    font-size: 1.1rem;
+    color: var(--muted-color);
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Delete Button */
+
+.goal-delete {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: var(--muted-color);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.goal-delete svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.goal-delete:hover {
+    color: #b45353;
+}
+
+/* Empty States */
+
+.goals-empty {
+    text-align: center;
+    color: var(--muted-color);
+    padding: 40px 16px;
+}
+
+.goals-empty[hidden] {
+    display: none;
+}
+
+/* Responsive Learning Goals */
+
+@media (max-width: 768px) {
+    .learning {
+        padding: 70px 6%;
+    }
+
+    .learning-heading {
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        padding: 18px 6px;
+    }
+
+    .stat-card span {
+        font-size: 1.8rem;
+    }
+
+    .stat-card p {
+        font-size: 0.8rem;
+    }
+
+    .goal-input-group {
+        flex-direction: column;
+    }
+
+    .goal-input-group .primary-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .filter-btn {
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 0.75rem;
+    }
+
+    .goal-item {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .goal-title {
+        font-size: 1.3rem;
     }
 }
 

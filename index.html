@@ -203,9 +203,75 @@
             </div>
         </section>
 
-        <section id="learning">
-            <h2>Learning Goals</h2>
-            <p>Interactive part.</p>
+        <section id="learning" class="learning">
+            <div class="learning-container">
+
+                <div class="learning-heading">
+                    <span class="section-label">KEEP GROWING</span>
+                    <h2>Learning Goals</h2>
+                    <p>
+                        A little progress every day adds up.
+                        Here's what I'm currently working on.
+                    </p>
+                </div>
+
+                <!-- Progress Statistics -->
+                <div class="goals-stats">
+                    <div class="stat-card">
+                        <span id="total-goals">0</span>
+                        <p>Total Goals</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span id="completed-goals">0</span>
+                        <p>Completed</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span id="progress-percent">0%</span>
+                        <p>Progress</p>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="goal-filters" aria-label="Filter learning goals">
+                    <button type="button" class="filter-btn active"
+                            data-filter="all" aria-pressed="true">All</button>
+
+                    <button type="button" class="filter-btn"
+                            data-filter="active" aria-pressed="false">Active</button>
+
+                    <button type="button" class="filter-btn"
+                            data-filter="completed" aria-pressed="false">Completed</button>
+                </div>
+
+                <!-- Goals List -->
+                <ul id="goals-list" class="goals-list"></ul>
+
+                <p id="goals-empty" class="goals-empty" hidden></p>
+
+                <!-- Add New Goal -->
+                <form id="goal-form" class="goal-form">
+                    <label for="goal-input">Add a new learning goal</label>
+
+                    <div class="goal-input-group">
+                        <input
+                            type="text"
+                            id="goal-input"
+                            placeholder="What would you like to learn?"
+                            maxlength="150"
+                            autocomplete="off"
+                        >
+
+                        <button type="submit" class="primary-button">
+                            Add Goal
+                        </button>
+                    </div>
+
+                    <p id="goal-error" class="goal-error"
+                    role="alert" hidden></p>
+                </form>
+            </div>
         </section>
     </main>
 
