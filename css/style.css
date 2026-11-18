@@ -49,8 +49,11 @@ header {
     justify-content: space-between;
 
     background-color: var(--header-bg);
-    padding: 12px 8%;
-
+    padding: 8px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
     transition: background-color 0.3s ease;
 }
 
@@ -73,6 +76,10 @@ nav a {
 
 nav a:hover {
     opacity: 0.6;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 #theme-toggle {
@@ -297,8 +304,10 @@ nav a:hover {
 @media (max-width: 768px) {
 
     header {
-        position: relative;
-        padding: 12px 6%;
+        padding: 8px 8%;
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
 
     .header-actions {
