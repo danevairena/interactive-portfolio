@@ -2,6 +2,7 @@
 
 import { renderGoals } from "./goals-ui.js";
 import { renderStats } from "./goals-stats.js";
+import { initFilters } from "./goals-filters.js";
 
 const initialGoals = [
     {
@@ -25,6 +26,7 @@ const initialGoals = [
 ];
 
 let goals = initialGoals.map(goal => ({ ...goal }));
+let currentFilter = "all";
 
 function toggleGoal(id) {
     const goal = goals.find(goal => goal.id === id);
@@ -46,9 +48,29 @@ function deleteGoal(id) {
     updateUI();
 }
 
+function getFilteredGoals() {
+    switch (currentFilter) {
+        case "active":
+            return goals.filter(goal => !goal.completed);
+
+        case "completed":
+            return goals.filter(goal => goal.completed);
+
+        default:
+            return goals;
+    }
+}
+
 function updateUI() {
-    renderGoals(goals, toggleGoal, deleteGoal);
+    const filteredGoals = getFilteredGoals();
+
+    renderGoals(filteredGoals, toggleGoal, deleteGoal);
     renderStats(goals);
 }
+
+initFilters(filter => {
+    currentFilter = filter;
+    updateUI();
+});
 
 updateUI();
