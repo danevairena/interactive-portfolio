@@ -6,6 +6,12 @@ The project introduces me, highlights my technical skills and interests, and dem
 
 The main interactive feature is a learning goals manager that allows users to create, track, filter, and delete goals while preserving their progress between browser sessions.
 
+## Live Demo
+
+🌐 **[View Live Demo](https://danevairena.github.io/interactive-portfolio/)**
+
+Explore the interactive portfolio directly in your browser. No installation required.
+
 ## Technologies Used
 
 - **HTML5** - Semantic structure and accessible content.
